@@ -1,0 +1,113 @@
+<opc:TypeDictionary xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://prediktor.no/PVTypes/" DefaultByteOrder="LittleEndian" xmlns:opc="http://opcfoundation.org/BinarySchema/" xmlns:ua="http://opcfoundation.org/UA/" TargetNamespace="http://prediktor.no/PVTypes/">
+    <opc:Import Namespace="http://opcfoundation.org/UA/"/>
+    <opc:EnumeratedType LengthInBits="32" Name="InverterStatus">
+        <opc:Documentation>Generic Inverter Status </opc:Documentation>
+        <opc:EnumeratedValue Name="OK" Value="0"/>
+        <opc:EnumeratedValue Name="Warning" Value="1"/>
+        <opc:EnumeratedValue Name="Error" Value="2"/>
+        <opc:EnumeratedValue Name="Idle" Value="3"/>
+        <opc:EnumeratedValue Name="CommLoss" Value="4"/>
+        <opc:EnumeratedValue Name="Grounded" Value="5"/>
+        <opc:EnumeratedValue Name="Statcom" Value="6"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType LengthInBits="32" Name="LineStatus">
+        <opc:Documentation>Status of a line</opc:Documentation>
+        <opc:EnumeratedValue Name="Undefined1" Value="0"/>
+        <opc:EnumeratedValue Name="Closed" Value="1"/>
+        <opc:EnumeratedValue Name="Open" Value="2"/>
+        <opc:EnumeratedValue Name="Undefined2" Value="3"/>
+        <opc:EnumeratedValue Name="Undefined3" Value="4"/>
+        <opc:EnumeratedValue Name="CommLoss" Value="5"/>
+        <opc:EnumeratedValue Name="Grounded" Value="6"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType LengthInBits="32" Name="MeterCategory">
+        <opc:EnumeratedValue Name="Energy Meter" Value="0"/>
+        <opc:EnumeratedValue Name="Power Analyser" Value="1"/>
+        <opc:EnumeratedValue Name="AUX meter" Value="2"/>
+        <opc:EnumeratedValue Name="Other" Value="3"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType LengthInBits="32" Name="ModuleCategory">
+        <opc:Documentation>Module Category</opc:Documentation>
+        <opc:EnumeratedValue Name="Mono-Directional" Value="0"/>
+        <opc:EnumeratedValue Name="Bi-Directional" Value="1"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType LengthInBits="32" Name="ModuleMaterialCategory">
+        <opc:Documentation>Module Materia Category</opc:Documentation>
+        <opc:EnumeratedValue Name="CSI" Value="0"/>
+        <opc:EnumeratedValue Name="ASI" Value="1"/>
+        <opc:EnumeratedValue Name="CDTE" Value="2"/>
+        <opc:EnumeratedValue Name="CIS" Value="3"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType LengthInBits="32" Name="ModuleMountingGeometryType">
+        <opc:EnumeratedValue Name="GeometryFixedOneAngleNS" Value="0"/>
+        <opc:EnumeratedValue Name="GeometryFixedOneAngleEW" Value="1"/>
+        <opc:EnumeratedValue Name="GeometryOneAxisVertical" Value="2"/>
+        <opc:EnumeratedValue Name="GeometryOneAxisInclined" Value="3"/>
+        <opc:EnumeratedValue Name="GeometryOneAxisHorizontalNS" Value="4"/>
+        <opc:EnumeratedValue Name="GeometryTwoAxisAstronomical" Value="5"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType LengthInBits="32" Name="ModuleMountingInstallationType">
+        <opc:Documentation>Module Mounting Installation Type</opc:Documentation>
+        <opc:EnumeratedValue Name="FREE_STANDING" Value="0"/>
+        <opc:EnumeratedValue Name="ROOF_MOUNTED" Value="1"/>
+        <opc:EnumeratedValue Name="BUILDING_INTEGRATED" Value="2"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType LengthInBits="32" Name="PPCAndMeterStatus">
+        <opc:Documentation>PPC and meter Status</opc:Documentation>
+        <opc:EnumeratedValue Name="OK" Value="0"/>
+        <opc:EnumeratedValue Name="Error" Value="1"/>
+        <opc:EnumeratedValue Name="Warning" Value="2"/>
+        <opc:EnumeratedValue Name="CommLoss" Value="3"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType LengthInBits="32" Name="SiteStatus">
+        <opc:EnumeratedValue Name="OK" Value="0"/>
+        <opc:EnumeratedValue Name="Warning" Value="1"/>
+        <opc:EnumeratedValue Name="Error" Value="2"/>
+        <opc:EnumeratedValue Name="Idle" Value="3"/>
+        <opc:EnumeratedValue Name="CommLoss" Value="4"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType LengthInBits="32" Name="StringCombinerStatus">
+        <opc:Documentation>Status of string combiner</opc:Documentation>
+        <opc:EnumeratedValue Name="Producing OK" Value="0"/>
+        <opc:EnumeratedValue Name="Performance_Warning" Value="1"/>
+        <opc:EnumeratedValue Name="Performance_Error" Value="2"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType LengthInBits="32" Name="StringSetStatus">
+        <opc:Documentation>String Set Status Enumeration</opc:Documentation>
+        <opc:EnumeratedValue Name="OK" Value="0"/>
+        <opc:EnumeratedValue Name="Underperformance" Value="1"/>
+        <opc:EnumeratedValue Name="NotInPosition" Value="2"/>
+        <opc:EnumeratedValue Name="Idle" Value="3"/>
+        <opc:EnumeratedValue Name="CommLoss" Value="4"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType LengthInBits="32" Name="SubstationTrafoType">
+        <opc:Documentation>Substation Transformer Type</opc:Documentation>
+        <opc:EnumeratedValue Name="FeedIn" Value="0"/>
+        <opc:EnumeratedValue Name="AUX" Value="1"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType LengthInBits="32" Name="TrackerCategory">
+        <opc:EnumeratedValue Name="Single Axis NS" Value="0"/>
+        <opc:EnumeratedValue Name="Multi Axis" Value="1"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType LengthInBits="32" Name="TransformerStationStatus">
+        <opc:Documentation>Status for a transformer station</opc:Documentation>
+        <opc:EnumeratedValue Name="OK" Value="0"/>
+        <opc:EnumeratedValue Name="Warning" Value="1"/>
+        <opc:EnumeratedValue Name="Error" Value="2"/>
+        <opc:EnumeratedValue Name="Idle" Value="3"/>
+        <opc:EnumeratedValue Name="CommLoss" Value="4"/>
+        <opc:EnumeratedValue Name="Grounded" Value="5"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType LengthInBits="32" Name="WeatherStationCategory">
+        <opc:EnumeratedValue Name="Site" Value="0"/>
+        <opc:EnumeratedValue Name="Field" Value="1"/>
+    </opc:EnumeratedType>
+    <opc:EnumeratedType LengthInBits="32" Name="WeatherStationStatus">
+        <opc:Documentation>Weather station status</opc:Documentation>
+        <opc:EnumeratedValue Name="OK" Value="0"/>
+        <opc:EnumeratedValue Name="Warning" Value="1"/>
+        <opc:EnumeratedValue Name="Error" Value="2"/>
+        <opc:EnumeratedValue Name="Idle" Value="3"/>
+        <opc:EnumeratedValue Name="CommLoss" Value="4"/>
+    </opc:EnumeratedType>
+</opc:TypeDictionary>

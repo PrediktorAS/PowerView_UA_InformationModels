@@ -1,0 +1,279 @@
+<xs:schema elementFormDefault="qualified" targetNamespace="http://prediktor.no/PVTypes/Types.xsd" xmlns:tns="http://prediktor.no/PVTypes/Types.xsd" xmlns:ua="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:import namespace="http://opcfoundation.org/UA/2008/02/Types.xsd"/>
+    <xs:simpleType name="InverterStatus">
+        <xs:annotation>
+            <xs:documentation>Generic Inverter Status </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OK_0"/>
+            <xs:enumeration value="Warning_1"/>
+            <xs:enumeration value="Error_2"/>
+            <xs:enumeration value="Idle_3"/>
+            <xs:enumeration value="CommLoss_4"/>
+            <xs:enumeration value="Grounded_5"/>
+            <xs:enumeration value="Statcom_6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:InverterStatus" name="InverterStatus"/>
+    <xs:complexType name="ListOfInverterStatus">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:InverterStatus" name="InverterStatus" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfInverterStatus" name="ListOfInverterStatus" nillable="true"/>
+    <xs:simpleType name="LineStatus">
+        <xs:annotation>
+            <xs:documentation>Status of a line</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Undefined1_0"/>
+            <xs:enumeration value="Closed_1"/>
+            <xs:enumeration value="Open_2"/>
+            <xs:enumeration value="Undefined2_3"/>
+            <xs:enumeration value="Undefined3_4"/>
+            <xs:enumeration value="CommLoss_5"/>
+            <xs:enumeration value="Grounded_6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:LineStatus" name="LineStatus"/>
+    <xs:complexType name="ListOfLineStatus">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:LineStatus" name="LineStatus" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfLineStatus" name="ListOfLineStatus" nillable="true"/>
+    <xs:simpleType name="MeterCategory">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Energy Meter_0"/>
+            <xs:enumeration value="Power Analyser_1"/>
+            <xs:enumeration value="AUX meter_2"/>
+            <xs:enumeration value="Other_3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:MeterCategory" name="MeterCategory"/>
+    <xs:complexType name="ListOfMeterCategory">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:MeterCategory" name="MeterCategory" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfMeterCategory" name="ListOfMeterCategory" nillable="true"/>
+    <xs:simpleType name="ModuleCategory">
+        <xs:annotation>
+            <xs:documentation>Module Category</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Mono-Directional_0"/>
+            <xs:enumeration value="Bi-Directional_1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:ModuleCategory" name="ModuleCategory"/>
+    <xs:complexType name="ListOfModuleCategory">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:ModuleCategory" name="ModuleCategory" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfModuleCategory" name="ListOfModuleCategory" nillable="true"/>
+    <xs:simpleType name="ModuleMaterialCategory">
+        <xs:annotation>
+            <xs:documentation>Module Materia Category</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CSI_0"/>
+            <xs:enumeration value="ASI_1"/>
+            <xs:enumeration value="CDTE_2"/>
+            <xs:enumeration value="CIS_3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:ModuleMaterialCategory" name="ModuleMaterialCategory"/>
+    <xs:complexType name="ListOfModuleMaterialCategory">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:ModuleMaterialCategory" name="ModuleMaterialCategory" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfModuleMaterialCategory" name="ListOfModuleMaterialCategory" nillable="true"/>
+    <xs:simpleType name="ModuleMountingGeometryType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="GeometryFixedOneAngleNS_0"/>
+            <xs:enumeration value="GeometryFixedOneAngleEW_1"/>
+            <xs:enumeration value="GeometryOneAxisVertical_2"/>
+            <xs:enumeration value="GeometryOneAxisInclined_3"/>
+            <xs:enumeration value="GeometryOneAxisHorizontalNS_4"/>
+            <xs:enumeration value="GeometryTwoAxisAstronomical_5"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:ModuleMountingGeometryType" name="ModuleMountingGeometryType"/>
+    <xs:complexType name="ListOfModuleMountingGeometryType">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:ModuleMountingGeometryType" name="ModuleMountingGeometryType" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfModuleMountingGeometryType" name="ListOfModuleMountingGeometryType" nillable="true"/>
+    <xs:simpleType name="ModuleMountingInstallationType">
+        <xs:annotation>
+            <xs:documentation>Module Mounting Installation Type</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="FREE_STANDING_0"/>
+            <xs:enumeration value="ROOF_MOUNTED_1"/>
+            <xs:enumeration value="BUILDING_INTEGRATED_2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:ModuleMountingInstallationType" name="ModuleMountingInstallationType"/>
+    <xs:complexType name="ListOfModuleMountingInstallationType">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:ModuleMountingInstallationType" name="ModuleMountingInstallationType" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfModuleMountingInstallationType" name="ListOfModuleMountingInstallationType" nillable="true"/>
+    <xs:simpleType name="PPCAndMeterStatus">
+        <xs:annotation>
+            <xs:documentation>PPC and meter Status</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OK_0"/>
+            <xs:enumeration value="Error_1"/>
+            <xs:enumeration value="Warning_2"/>
+            <xs:enumeration value="CommLoss_3"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:PPCAndMeterStatus" name="PPCAndMeterStatus"/>
+    <xs:complexType name="ListOfPPCAndMeterStatus">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:PPCAndMeterStatus" name="PPCAndMeterStatus" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfPPCAndMeterStatus" name="ListOfPPCAndMeterStatus" nillable="true"/>
+    <xs:simpleType name="SiteStatus">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OK_0"/>
+            <xs:enumeration value="Warning_1"/>
+            <xs:enumeration value="Error_2"/>
+            <xs:enumeration value="Idle_3"/>
+            <xs:enumeration value="CommLoss_4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:SiteStatus" name="SiteStatus"/>
+    <xs:complexType name="ListOfSiteStatus">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:SiteStatus" name="SiteStatus" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfSiteStatus" name="ListOfSiteStatus" nillable="true"/>
+    <xs:simpleType name="StringCombinerStatus">
+        <xs:annotation>
+            <xs:documentation>Status of string combiner</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Producing OK_0"/>
+            <xs:enumeration value="Performance_Warning_1"/>
+            <xs:enumeration value="Performance_Error_2"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:StringCombinerStatus" name="StringCombinerStatus"/>
+    <xs:complexType name="ListOfStringCombinerStatus">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:StringCombinerStatus" name="StringCombinerStatus" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfStringCombinerStatus" name="ListOfStringCombinerStatus" nillable="true"/>
+    <xs:simpleType name="StringSetStatus">
+        <xs:annotation>
+            <xs:documentation>String Set Status Enumeration</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OK_0"/>
+            <xs:enumeration value="Underperformance_1"/>
+            <xs:enumeration value="NotInPosition_2"/>
+            <xs:enumeration value="Idle_3"/>
+            <xs:enumeration value="CommLoss_4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:StringSetStatus" name="StringSetStatus"/>
+    <xs:complexType name="ListOfStringSetStatus">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:StringSetStatus" name="StringSetStatus" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfStringSetStatus" name="ListOfStringSetStatus" nillable="true"/>
+    <xs:simpleType name="SubstationTrafoType">
+        <xs:annotation>
+            <xs:documentation>Substation Transformer Type</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="FeedIn_0"/>
+            <xs:enumeration value="AUX_1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:SubstationTrafoType" name="SubstationTrafoType"/>
+    <xs:complexType name="ListOfSubstationTrafoType">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:SubstationTrafoType" name="SubstationTrafoType" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfSubstationTrafoType" name="ListOfSubstationTrafoType" nillable="true"/>
+    <xs:simpleType name="TrackerCategory">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Single Axis NS_0"/>
+            <xs:enumeration value="Multi Axis_1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:TrackerCategory" name="TrackerCategory"/>
+    <xs:complexType name="ListOfTrackerCategory">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:TrackerCategory" name="TrackerCategory" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfTrackerCategory" name="ListOfTrackerCategory" nillable="true"/>
+    <xs:simpleType name="TransformerStationStatus">
+        <xs:annotation>
+            <xs:documentation>Status for a transformer station</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OK_0"/>
+            <xs:enumeration value="Warning_1"/>
+            <xs:enumeration value="Error_2"/>
+            <xs:enumeration value="Idle_3"/>
+            <xs:enumeration value="CommLoss_4"/>
+            <xs:enumeration value="Grounded_5"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:TransformerStationStatus" name="TransformerStationStatus"/>
+    <xs:complexType name="ListOfTransformerStationStatus">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:TransformerStationStatus" name="TransformerStationStatus" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfTransformerStationStatus" name="ListOfTransformerStationStatus" nillable="true"/>
+    <xs:simpleType name="WeatherStationCategory">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Site_0"/>
+            <xs:enumeration value="Field_1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:WeatherStationCategory" name="WeatherStationCategory"/>
+    <xs:complexType name="ListOfWeatherStationCategory">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:WeatherStationCategory" name="WeatherStationCategory" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfWeatherStationCategory" name="ListOfWeatherStationCategory" nillable="true"/>
+    <xs:simpleType name="WeatherStationStatus">
+        <xs:annotation>
+            <xs:documentation>Weather station status</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OK_0"/>
+            <xs:enumeration value="Warning_1"/>
+            <xs:enumeration value="Error_2"/>
+            <xs:enumeration value="Idle_3"/>
+            <xs:enumeration value="CommLoss_4"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:WeatherStationStatus" name="WeatherStationStatus"/>
+    <xs:complexType name="ListOfWeatherStationStatus">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:WeatherStationStatus" name="WeatherStationStatus" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfWeatherStationStatus" name="ListOfWeatherStationStatus" nillable="true"/>
+</xs:schema>
