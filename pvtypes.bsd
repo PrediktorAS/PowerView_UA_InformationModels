@@ -45,6 +45,7 @@
         <opc:EnumeratedValue Name="GeometryOneAxisInclined" Value="3"/>
         <opc:EnumeratedValue Name="GeometryOneAxisHorizontalNS" Value="4"/>
         <opc:EnumeratedValue Name="GeometryTwoAxisAstronomical" Value="5"/>
+        <opc:EnumeratedValue Name="GeometryFixedOneAngle" Value="6"/>
     </opc:EnumeratedType>
     <opc:EnumeratedType LengthInBits="32" Name="ModuleMountingInstallationType">
         <opc:Documentation>Module Mounting Installation Type</opc:Documentation>
