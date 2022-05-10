@@ -1,5 +1,29 @@
 <xs:schema elementFormDefault="qualified" targetNamespace="http://prediktor.no/PVTypes/Types.xsd" xmlns:tns="http://prediktor.no/PVTypes/Types.xsd" xmlns:ua="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:import namespace="http://opcfoundation.org/UA/2008/02/Types.xsd"/>
+    <xs:simpleType name="InverterOperatingState">
+        <xs:annotation>
+            <xs:documentation>Operating state or operating mode as reported by the inverter. Enumrating states from SunSpec standard</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="OFF_1"/>
+            <xs:enumeration value="SLEEPING_2"/>
+            <xs:enumeration value="STARTING_3"/>
+            <xs:enumeration value="MPPT_4"/>
+            <xs:enumeration value="THROTTLED_5"/>
+            <xs:enumeration value="SHUTTING_DOWN_6"/>
+            <xs:enumeration value="FAULT_7"/>
+            <xs:enumeration value="STANDBY_8"/>
+            <xs:enumeration value="STATCOM_9"/>
+            <xs:enumeration value="GROUNDED_10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:element type="tns:InverterOperatingState" name="InverterOperatingState"/>
+    <xs:complexType name="ListOfInverterOperatingState">
+        <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="unbounded" type="tns:InverterOperatingState" name="InverterOperatingState" nillable="true"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element type="tns:ListOfInverterOperatingState" name="ListOfInverterOperatingState" nillable="true"/>
     <xs:simpleType name="InverterStatus">
         <xs:annotation>
             <xs:documentation>Generic Inverter Status </xs:documentation>
@@ -165,9 +189,13 @@
             <xs:documentation>Status of string combiner</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="Producing OK_0"/>
-            <xs:enumeration value="Performance_Warning_1"/>
-            <xs:enumeration value="Performance_Error_2"/>
+            <xs:enumeration value="Normal Production_0"/>
+            <xs:enumeration value="Underperformance warning_1"/>
+            <xs:enumeration value="Underperformance error_2"/>
+            <xs:enumeration value="Idle_3"/>
+            <xs:enumeration value="CommLoss_4"/>
+            <xs:enumeration value="Disconnected_5"/>
+            <xs:enumeration value="MalfunctionTracker_6"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:element type="tns:StringCombinerStatus" name="StringCombinerStatus"/>
@@ -182,11 +210,13 @@
             <xs:documentation>String Set Status Enumeration</xs:documentation>
         </xs:annotation>
         <xs:restriction base="xs:string">
-            <xs:enumeration value="OK_0"/>
-            <xs:enumeration value="Underperformance_1"/>
-            <xs:enumeration value="NotInPosition_2"/>
+            <xs:enumeration value="Normal Production_0"/>
+            <xs:enumeration value="Underperformance Warning_1"/>
+            <xs:enumeration value="Underperformance Error_2"/>
             <xs:enumeration value="Idle_3"/>
             <xs:enumeration value="CommLoss_4"/>
+            <xs:enumeration value="Disconnected_5"/>
+            <xs:enumeration value="MalfunctionTracker_6"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:element type="tns:StringSetStatus" name="StringSetStatus"/>
